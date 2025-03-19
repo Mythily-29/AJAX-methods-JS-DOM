@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <button id="button" onclick="formOpen()">NEW USER</button>
+    <table id="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Username</th>
+                <th>ACTION</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <form action="" id="userForm" >
+
+            <i class="fa-solid fa-xmark" onclick="close()"></i>
+
+            <label for="">Name</label>
+            <input type="text" id="name">
+            <span></span>
+            <label for="">Email</label>
+            <input type="text" id="email">
+            <span></span>
+            <label for="">Username</label>
+            <input type="text" id="username">
+            <span></span>
+            <button type="submit" id="submit-btn">SUBMIT</button>
+    </form>
+  <script>
+    document.querySelector('i').addEventListener('click',()=>{
+        document.getElementById("userForm").style.display = "none";
+
+    })
+  </script>
+    <script src="sample.js"></script>
+</body>
+</html>
