@@ -9,7 +9,7 @@ let check=true
 let obj={};
 let editId;
 let xhr=new XMLHttpRequest()
-let url=`https://mimic-server-api.vercel.app/users/`
+let url=`https://mimic-server-api.vercel.app/users`
 
 function getValues(){
     
@@ -63,7 +63,6 @@ function inputValidation(name, mail, username) {
 function api(name,url){
     xhr.open(name,url)
     xhr.setRequestHeader('Content-type', 'application/json; charset=UTF-8')
-
 if(name=="Post"){
     xhr.send(JSON.stringify(obj));alert('Submitted successfully');getValues();
 }
@@ -78,9 +77,11 @@ table.addEventListener('click',(e)=>{
     if(e.target.classList.contains('edit')){
         document.getElementById("userForm").style.display = "block";
         showingDetails(e.target.id)
+        return
     }
     else if(e.target.classList.contains('delete')){
         deletevalues(e.target.id)
+        return
     }
 })
 
@@ -99,6 +100,11 @@ function showingDetails(id){
 function deletevalues(id){
     let dele=new XMLHttpRequest();
     dele.open('Delete',`https://mimic-server-api.vercel.app/users/${id}`)
+    dele.onload = ()=>{
+        if(dele.status == 200){
+            window.location.reload()
+        }
+
+    }
     dele.send()
-    getValues();
 }
